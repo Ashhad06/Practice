@@ -313,12 +313,6 @@ def admin():
 
 
 
-def Restaurant_Owner():
-    Restaurant_Owner_Selection=Toplevel(root)
-    Restaurant_Owner_Selection.title("Your restaurant")
-    Restaurant_Owner_Selection.minsize(width=500,height=200)
-    Restaurant_Owner_Selection.maxsize(width=500,height=200)
-    Restaurant_Owner_Selection.configure(bg="cornsilk")
     
     
     
@@ -340,7 +334,26 @@ def Restaurant_Owner():
     
         P1=Entry(Restaurant_Owner_window,width=50,bd=3)
         P1.place(x=156,y=45)
+        
 
+def Restaurant_Owner():
+    Restaurant_Owner_Selection=Toplevel(root)
+    Restaurant_Owner_Selection.title("Your restaurant")
+    Restaurant_Owner_Selection.minsize(width=500,height=200)
+    Restaurant_Owner_Selection.maxsize(width=500,height=200)
+    Restaurant_Owner_Selection.configure(bg="cornsilk")
+    
+    Rb= Button(Restaurant_Owner_Selection, text="Kfc", font=("Verdana", 12, "bold"), width=12, height=2, bd=5 ,fg="Red", bg="White",command=Kfc_Owner)
+    Rb.place(x=50, y=20)
+    
+    
+ 
+    
+    
+    
+    
+    
+    
 Start = Label(root, text="Who are you?", font=("Neutral Face", 30, "bold"),bg="Black",fg="gold1")
 Start.place(x=180, y=15)
 
