@@ -317,7 +317,7 @@ def admin():
     
     
     
-    def Kfc_Owner():
+def Kfc_Owner():
         Restaurant_Owner_window = Toplevel(root)
         Restaurant_Owner_window.title("Restaurant Owner login")
         Restaurant_Owner_window.minsize(width=500,height=200)
@@ -334,6 +334,17 @@ def admin():
     
         P1=Entry(Restaurant_Owner_window,width=50,bd=3)
         P1.place(x=156,y=45)
+        
+def login():
+        username=username_entry.get()
+        password=password_entry.get()
+            
+        if username=="" and password=="":
+            Messagebox.showinfo(".","Enter Your username or password")
+        else:
+            con=mysql.connect(host="localhost",user="root",database="online_order")
+            cursor=con.cursor
+            cursor.execute("select *")
         
 
 def Restaurant_Owner():
@@ -366,4 +377,6 @@ Owner.place(x=190, y=80)
 Admin = Button(root, text="Admin", height=2,width=13,font=("Product Sans Bold",15),bd=4, command=admin,bg="cornsilk")
 Admin.place(x=480, y=80)
 
+Kfc_Owner_Entry_Button=Button(Kfc_Owner,text="Login",command=login)
+Kfc_Owner_Entry_Button.place(x=50,y=70)
 root.mainloop()
