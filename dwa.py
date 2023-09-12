@@ -340,17 +340,32 @@ def Kfc_Owner():
     Kfc_Owner_Entry_Button.place(x=50, y=70)
 
         
+
 def login():
-    username=username.get()
-    password=password.get()
+    L = username_entry.get()
+    password = password_entry.get()
             
-    if username=="" and password=="":
-        Messagebox.showinfo(".","Enter Your username or password")
+    if L == "" or password == "":
+        Messagebox.showinfo(".", "Enter Your username or password")
     else:
-        con=mysql.connect(host="localhost",user="root",database="online_order")
-        cursor=con.cursor
-        cursor.execute("select * from Kfc_owner")
-        
+        try:
+            con = mysql.connector.connect(host="localhost", user="root", database="online_order")
+            cursor = con.cursor()
+            cursor.execute("SELECT * FROM Kfc_owner")
+            result = cursor.fetchone()
+            con.close()
+            
+            if result:
+                customer_window = Toplevel(root)
+                customer_window.title("New window")
+                customer_window.geometry("450x100")
+            else:
+                Messagebox.showinfo(".", "Invalid username or password")
+        except mysql.connector.Error as err:
+            print("Error:", err)
+
+
+            
 
 def Restaurant_Owner():
     Restaurant_Owner_Selection=Toplevel(root)
