@@ -335,34 +335,29 @@ def Kfc_Owner():
 
     P1 = Entry(Restaurant_Owner_window, width=50, bd=3)
     P1.place(x=156, y=45)
+    def login():
+        L = username.get()
+        password = P1.get()
+            
+        if L == "" or password == "":
+            Messagebox.showinfo(".", "Enter Your username or password")
+        else:
+                con = mysql.connector.connect(host="localhost", user="root", database="online_order")
+                cursor = con.cursor()
+                cursor.execute("SELECT * FROM Kfc_owner")
+                check = cursor.fetchall()
+                for i in check:
+                    if i[0] == username and i[1] == password:
+                        con.close()
+                        customer_window = Toplevel(root)
+                        customer_window.title("New Window")
+                        customer_window.minsize(width=300,height=180)
 
     Kfc_Owner_Entry_Button = Button(Restaurant_Owner_window, text="Login",command=login)
     Kfc_Owner_Entry_Button.place(x=50, y=70)
 
         
 
-def login():
-    L = username_entry.get()
-    password = password_entry.get()
-            
-    if L == "" or password == "":
-        Messagebox.showinfo(".", "Enter Your username or password")
-    else:
-        try:
-            con = mysql.connector.connect(host="localhost", user="root", database="online_order")
-            cursor = con.cursor()
-            cursor.execute("SELECT * FROM Kfc_owner")
-            result = cursor.fetchone()
-            con.close()
-            
-            if result:
-                customer_window = Toplevel(root)
-                customer_window.title("New window")
-                customer_window.geometry("450x100")
-            else:
-                Messagebox.showinfo(".", "Invalid username or password")
-        except mysql.connector.Error as err:
-            print("Error:", err)
 
 
             
