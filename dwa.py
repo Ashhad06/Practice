@@ -342,7 +342,7 @@ def Kfc_Owner():
         if L == "" or password == "":
             Messagebox.showinfo(".", "Enter Your username or password")
         else:
-                con = mysql.connector.connect(host="localhost", user="root", database="online_order")
+                con = mysql.connect(host="localhost", user="root", database="online_order")
                 cursor = con.cursor()
                 cursor.execute("SELECT * FROM Kfc_owner")
                 check = cursor.fetchall()
@@ -352,7 +352,11 @@ def Kfc_Owner():
                         customer_window = Toplevel(root)
                         customer_window.title("New Window")
                         customer_window.minsize(width=300,height=180)
-
+                        customer_window.maxsize(width=300,height=180)
+                        customer_window.configure(bg="cornsilk")
+                        root.withdraw()
+                        
+                        
     Kfc_Owner_Entry_Button = Button(Restaurant_Owner_window, text="Login",command=login)
     Kfc_Owner_Entry_Button.place(x=50, y=70)
 
