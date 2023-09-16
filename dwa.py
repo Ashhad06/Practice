@@ -349,16 +349,16 @@ def Kfc_Owner():
                 for i in check:
                     if i[0] == username and i[1] == password:
                         con.close()
-                        customer_window = Toplevel(root)
-                        customer_window.title("New Window")
-                        customer_window.minsize(width=300,height=180)
-                        customer_window.maxsize(width=300,height=180)
-                        customer_window.configure(bg="cornsilk")
+                        Kfc_Owner_Window = Toplevel(root)
+                        Kfc_Owner_Window.title("New Window")
+                        Kfc_Owner_Window.minsize(width=300,height=180)
+                        Kfc_Owner_Window.maxsize(width=300,height=180)
+                        Kfc_Owner_Window.configure(bg="cornsilk")
                         root.withdraw()
                         
                         
-    Kfc_Owner_Entry_Button = Button(Restaurant_Owner_window, text="Login",command=login)
-    Kfc_Owner_Entry_Button.place(x=50, y=70)
+    Kfc_Owner_Entry_button = Button(Restaurant_Owner_window, text="Login",command=login)
+    Kfc_Owner_Entry_button.place(x=50, y=70)
 
         
 
