@@ -335,6 +335,7 @@ def Kfc_Owner():
 
     P1 = Entry(Restaurant_Owner_window, width=50, bd=3)
     P1.place(x=156, y=45)
+    
     def login():
         L = username.get()
         password = P1.get()
@@ -354,15 +355,9 @@ def Kfc_Owner():
                         Kfc_Owner_Window.minsize(width=300,height=180)
                         Kfc_Owner_Window.maxsize(width=300,height=180)
                         Kfc_Owner_Window.configure(bg="cornsilk")
-                        root.withdraw()
-                        Restaurant_Owner_window.destroy()
-                        def New_window():
-                            New_window=Toplevel(root)
-                            New_window.title("KFC Owner")
-                            New_window.minsize(width=300,height=400)
-                            New_window.maxsize(width=300,height=400)
-    Kfc_Owner_Entry_button = Button(Restaurant_Owner_window, text="Login",command=login)
-    Kfc_Owner_Entry_button.place(x=50, y=70)
+    Kfc_Owner_Entry_button = Button(Restaurant_Owner_window, text="Login",command=login,width=7,fg="Black",bg="White",bd=5)
+    Kfc_Owner_Entry_button.place(x=18, y=80)
+    
 
         
 
@@ -405,11 +400,50 @@ def Broadway_Owner():
                         Broadway_Owner__Window1.maxsize(width=300,height=180)
                         Broadway_Owner__Window1.configure(bg="cornsilk")
                         root.withdraw()
-    Broadway_Owner_Entry_button = Button(Broadway_Owner_window, text="Login",command=login)
-    Broadway_Owner_Entry_button.place(x=50, y=70)        
+    Broadway_Owner_Entry_button = Button(Broadway_Owner_window, text="Login",command=login,width=7,fg="Black",bg="White",bd=5)
+    Broadway_Owner_Entry_button.place(x=18, y=80)        
                         
 
+def Bovichic_Owner():
+    Bovichic_Owner_window = Toplevel(root)
+    Bovichic_Owner_window.title("Broadway Owner login")
+    Bovichic_Owner_window.minsize(width=500, height=200)
+    Bovichic_Owner_window.maxsize(width=500, height=200)
+    Bovichic_Owner_window.configure(bg="cornsilk")
+
+    Bs = Label(Bovichic_Owner_window, text="Username:", font="Verdana", bg="Black", fg="White")
+    Bs.place(x=15, y=12)
+
+    username = Entry(Bovichic_Owner_window, width=50, bd=3)
+    username.place(x=156, y=12)
+
+    P = Label(Bovichic_Owner_window, text="Password:", font="Verdana", bg="Black", fg="White")
+    P.place(x=15, y=40)
+
+    P1 = Entry(Bovichic_Owner_window, width=50, bd=3)
+    P1.place(x=156, y=45)
+    def login():
+        L = username.get()
+        password = P1.get()
             
+        if L == "" or password == "":
+            Messagebox.showinfo(".", "Enter Your username or password")
+        else:
+                con = mysql.connect(host="localhost", user="root", database="online_order")
+                cursor = con.cursor()
+                cursor.execute("SELECT * FROM bovichic1")
+                check = cursor.fetchall()
+                for i in check:
+                    if i[0] == username and i[1] == password:
+                        con.close()
+                        Broadway_Owner__Window1 = Toplevel(root)
+                        Broadway_Owner__Window1.title("New Window")
+                        Broadway_Owner__Window1.minsize(width=300,height=180)
+                        Broadway_Owner__Window1.maxsize(width=300,height=180)
+                        Broadway_Owner__Window1.configure(bg="cornsilk")
+                        root.withdraw()
+    Broadway_Owner_Entry_button = Button(Bovichic_Owner_window, text="Login",command=login,width=7,fg="Black",bg="White",bd=5)
+    Broadway_Owner_Entry_button.place(x=18, y=80)            
 
 def Restaurant_Owner():
     Restaurant_Owner_Selection=Toplevel(root)
@@ -422,6 +456,8 @@ def Restaurant_Owner():
     Rb.place(x=50, y=20)
     Br=Button(Restaurant_Owner_Selection,text="Broadway", font=("Verdana", 12, "bold"), width=12, height=2, bd=5 ,fg="Red", bg="White",command=Broadway_Owner)
     Br.place(x=230,y=20)
+    Bs=Button(Restaurant_Owner_Selection,text="Bovichic", font=("Verdana", 12, "bold"), width=12, height=2, bd=5 ,fg="Red", bg="White",command=Bovichic_Owner)
+    Bs.place(x=135,y=100)
     
     
     
