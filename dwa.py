@@ -345,7 +345,7 @@ def Kfc_Owner():
         else:
                 con = mysql.connect(host="localhost", user="root", database="online_order")
                 cursor = con.cursor()
-                cursor.execute("SELECT * FROM Kfc_owner")
+                cursor.execute("SELECT * FROM kfc_owner")
                 check = cursor.fetchall()
                 for i in check:
                     if i[0] == username and i[1] == password:
@@ -389,7 +389,7 @@ def Broadway_Owner():
         else:
             con = mysql.connect(host="localhost", user="root", database="online_order")
             cursor = con.cursor()
-            cursor.execute("SELECT * FROM Broadway_window")
+            cursor.execute("select * from broadway_window")
             check = cursor.fetchall()
             for i in check:
                 if i[0] == username and i[1] == password:
