@@ -350,11 +350,12 @@ def Kfc_Owner():
                 for i in check:
                     if i[0] == username and i[1] == password:
                         con.close()
-                        Kfc_Owner_Window = Toplevel(root)
-                        Kfc_Owner_Window.title("New Window")
-                        Kfc_Owner_Window.minsize(width=300,height=180)
-                        Kfc_Owner_Window.maxsize(width=300,height=180)
-                        Kfc_Owner_Window.configure(bg="cornsilk")
+                    Kfc_Owner_Window = Toplevel(root)
+                    Kfc_Owner_Window.title("New Window")
+                    Kfc_Owner_Window.minsize(width=300,height=180)
+                    Kfc_Owner_Window.maxsize(width=300,height=180)
+                    Kfc_Owner_Window.configure(bg="cornsilk")
+                    Label(Kfc_Owner_Window,text="A").pack()
     Kfc_Owner_Entry_button = Button(Restaurant_Owner_window, text="Login",command=login,width=7,fg="Black",bg="White",bd=5)
     Kfc_Owner_Entry_button.place(x=18, y=80)
     
@@ -394,12 +395,12 @@ def Broadway_Owner():
             for i in check:
                 if i[0] == username and i[1] == password:
                     con.close()
-                    Broadway_Owner__Window = Toplevel(root)
-                    Broadway_Owner__Window.title("New Window")
-                    Broadway_Owner__Window.minsize(width=300,height=180)
-                    Broadway_Owner__Window.maxsize(width=300,height=180)
-                    Broadway_Owner__Window.configure(bg="cornsilk")
-                    root.withdraw()
+                Broadway_Owner__Window = Toplevel(root)
+                Broadway_Owner__Window.title("New Window")
+                Broadway_Owner__Window.minsize(width=300,height=180)
+                Broadway_Owner__Window.maxsize(width=300,height=180)
+                Broadway_Owner__Window.configure(bg="cornsilk")
+                # root.withdraw()
     Broadway_Owner_Entry_button = Button(Broadway_Owner_window, text="Login",command=login,width=7,fg="Black",bg="White",bd=5)
     Broadway_Owner_Entry_button.place(x=18, y=80)        
                         
@@ -436,12 +437,13 @@ def Bovichic_Owner():
                 for i in check:
                     if i[0] == username and i[1] == password:
                         con.close()
-                        Broadway_Owner__Window1 = Toplevel(root)
-                        Broadway_Owner__Window1.title("New Window")
-                        Broadway_Owner__Window1.minsize(width=300,height=180)
-                        Broadway_Owner__Window1.maxsize(width=300,height=180)
-                        Broadway_Owner__Window1.configure(bg="cornsilk")
-                        root.withdraw()
+                    Broadway_Owner__Window1 = Toplevel(root)
+                    Broadway_Owner__Window1.title("New Window")
+                    Broadway_Owner__Window1.minsize(width=300,height=180)
+                    Broadway_Owner__Window1.maxsize(width=300,height=180)
+                    Broadway_Owner__Window1.configure(bg="cornsilk")
+                    root.withdraw()
+
     Broadway_Owner_Entry_button = Button(Bovichic_Owner_window, text="Login",command=login,width=7,fg="Black",bg="White",bd=5)
     Broadway_Owner_Entry_button.place(x=18, y=80)            
 
